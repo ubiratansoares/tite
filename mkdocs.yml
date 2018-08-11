@@ -1,0 +1,89 @@
+# Project information
+site_name: Tite - A Kotlin DSL for RxJava testing
+site_description: Tite - A Kotlin DSL for RxJava testing
+site_author: Ubiratan Soares
+site_url: https://ubiratansoares.github.io/tite/
+
+# Repository
+repo_url: https://github.com/ubiratansoares/tite
+repo_name: View on Github
+edit_uri: ""
+
+# Copyright
+copyright: 'Copyright &copy; 2018 Ubiratan Soares'
+
+# Configuration
+theme:
+  name: material
+  logo:
+    icon: 'code'
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: false
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  feature:
+    tabs: false
+  palette:
+    primary: blue-grey
+    accent: blue-grey
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.png
+  # logo:
+  #   icon: "\uE80C"
+
+# Customization
+extra:
+  social:
+    - type: globe
+      link: http://ubiratansoares.github.io
+    - type: github-alt
+      link: https://github.com/ubiratansoares
+    - type: twitter
+      link: https://twitter.com/ubiratanfsoares
+    - type: linkedin
+      link: https://linkedin.com/in/ubiratanfsoares
+
+extra_css:
+  - 'stylesheets/extra.css'
+
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+pages:
+  - Tite: index.md
+
