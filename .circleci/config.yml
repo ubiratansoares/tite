@@ -1,0 +1,17 @@
+jobs:
+  build:
+    working_directory: ~/tite
+    docker:
+    - image: openjdk:8u171-jdk
+    steps:
+    - checkout
+    - restore_cache:
+        key: jars-{{ checksum "build.gradle" }}
+    - run:
+        name: Build
+        command: ./gradlew build
+    - save_cache:
+        paths:
+        - ~/.gradle
+        - ~/.m2
+        key: jars-{{ checksum "build.gradle" }}
