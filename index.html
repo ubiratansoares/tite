@@ -1,0 +1,789 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Tite - A Kotlin DSL for RxJava testing">
+      
+      
+        <link rel="canonical" href="https://ubiratansoares.github.io/tite/">
+      
+      
+        <meta name="author" content="Ubiratan Soares">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="./assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+    
+    
+      
+        <title>Tite - A Kotlin DSL for RxJava testing</title>
+      
+    
+    
+      <link rel="stylesheet" href="./assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="./assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="./assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="./assets/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="./stylesheets/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue-grey">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#tite" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://ubiratansoares.github.io/tite/" title="Tite - A Kotlin DSL for RxJava testing" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">code</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Tite - A Kotlin DSL for RxJava testing
+              </span>
+              <span class="md-header-nav__topic">
+                Tite
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/ubiratansoares/tite" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      View on Github
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://ubiratansoares.github.io/tite/" title="Tite - A Kotlin DSL for RxJava testing" class="md-nav__button md-logo">
+      
+        <i class="md-icon">code</i>
+      
+    </a>
+    Tite - A Kotlin DSL for RxJava testing
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/ubiratansoares/tite" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      View on Github
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Tite
+      </label>
+    
+    <a href="." title="Tite" class="md-nav__link md-nav__link--active">
+      Tite
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" title="Motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-discoverability" title="API discoverability" class="md-nav__link">
+    API discoverability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-api-style-in-a-kotlin-world" title="Java API style in a Kotlin world" class="md-nav__link">
+    Java API style in a Kotlin world
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dsl-goal" title="DSL Goal" class="md-nav__link">
+    DSL Goal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" title="Source Code" class="md-nav__link">
+    Source Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dsl-design" title="DSL Design" class="md-nav__link">
+    DSL Design
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditions-before-performing-verifications" title="Conditions before performing verifications" class="md-nav__link">
+    Conditions before performing verifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-emmited-values" title="Verifying emmited values" class="md-nav__link">
+    Verifying emmited values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-signaled-error" title="Verifying signaled error" class="md-nav__link">
+    Verifying signaled error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-lifecycle-of-a-sequence" title="Verifying lifecycle of a sequence" class="md-nav__link">
+    Verifying lifecycle of a sequence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-verifications" title="Mixed verifications" class="md-nav__link">
+    Mixed verifications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" title="Building" class="md-nav__link">
+    Building
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-this-library-used-by-someone-somewhere" title="Is this library used by someone / somewhere ?" class="md-nav__link">
+    Is this library used by someone / somewhere ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-work" title="Further Work" class="md-nav__link">
+    Further Work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" title="Motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-discoverability" title="API discoverability" class="md-nav__link">
+    API discoverability
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-api-style-in-a-kotlin-world" title="Java API style in a Kotlin world" class="md-nav__link">
+    Java API style in a Kotlin world
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dsl-goal" title="DSL Goal" class="md-nav__link">
+    DSL Goal
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#source-code" title="Source Code" class="md-nav__link">
+    Source Code
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" title="Setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dsl-design" title="DSL Design" class="md-nav__link">
+    DSL Design
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conditions-before-performing-verifications" title="Conditions before performing verifications" class="md-nav__link">
+    Conditions before performing verifications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-emmited-values" title="Verifying emmited values" class="md-nav__link">
+    Verifying emmited values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-signaled-error" title="Verifying signaled error" class="md-nav__link">
+    Verifying signaled error
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verifying-lifecycle-of-a-sequence" title="Verifying lifecycle of a sequence" class="md-nav__link">
+    Verifying lifecycle of a sequence
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mixed-verifications" title="Mixed verifications" class="md-nav__link">
+    Mixed verifications
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building" title="Building" class="md-nav__link">
+    Building
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-this-library-used-by-someone-somewhere" title="Is this library used by someone / somewhere ?" class="md-nav__link">
+    Is this library used by someone / somewhere ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-work" title="Further Work" class="md-nav__link">
+    Further Work
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" title="License" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="tite">TITE<a class="headerlink" href="#tite" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>A Kotlin DSL for gorgeous RxJava2 tests</p>
+</blockquote>
+<h2 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">&para;</a></h2>
+<p>RxJava2 gives us a handy testing API : besides <code>TestSubscriber</code> and <code>TestObserver</code>, you also have a built-in <code>test()</code> API method available for every available reactive type, that shortcuts the retrieval of a <strong>TestObserver</strong> or <strong>TestSubscriber</strong> instance and streamlines your testing flow.  </p>
+<div class="codehilite"><pre><span></span>val letters = Observable.just(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)
+
+letters
+    .test()
+    .assertValueCount(3)
+    .assertComplete()
+</pre></div>
+
+<p>Both <strong>TestSubscriber</strong> and <strong>TestObserver</strong> assertions let you get your tests done; but after using these APIs for a while, you may figure out they are not perfect ... Let's see why.</p>
+<h4 id="api-discoverability">API discoverability<a class="headerlink" href="#api-discoverability" title="Permanent link">&para;</a></h4>
+<p>The range of verifiable aspects of some reactive-powered API is quite wide... you may be interested :</p>
+<ul>
+<li>on the values emmited </li>
+<li>on error(s) signaled</li>
+<li>on sequence "lifecycle" check (<em>Is it terminated</em> ? <em>Is it running</em> ?)</li>
+<li>all that together</li>
+</ul>
+<p>Furthermore, when using some <strong>TestSubscriber</strong> or <strong>TestObserver</strong> API, have you ever asked what is the diference between</p>
+<ul>
+<li><code>assertError</code> and <code>assertFailure</code>?</li>
+<li><code>assertEmpty</code> and <code>assertNoValues</code>?</li>
+<li><code>assertValuesSequence</code> and <code>assertValuesSet</code>?</li>
+</ul>
+<p>Offering several options over an API is a decision that may confuse the developer, even unintentionally. </p>
+<h4 id="java-api-style-in-a-kotlin-world">Java API style in a Kotlin world<a class="headerlink" href="#java-api-style-in-a-kotlin-world" title="Permanent link">&para;</a></h4>
+<p>Yes, it's true. The <em>fluent-and-chainable</em> API design is nice, but is too much Java-sh, and not so much Kotlin idiomatic. </p>
+<h4 id="dsl-goal">DSL Goal<a class="headerlink" href="#dsl-goal" title="Permanent link">&para;</a></h4>
+<p>Kotlin empowers developers with a new world of possibilities, including a new field of DSL grammars using language features like <strong>infix notation</strong> for functions representations, <strong>lambdas extensions</strong> over instance types and others.</p>
+<p>With that in mind, Tite was born. It aims to apply some grammar over 
+<strong>TestSubscriber</strong> and <strong>TestObserver</strong> APIs while improving the API discoverability as well.</p>
+<h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
+<p>Check it on <a href="https://github.com/ubiratansoares/tite">Github</a></p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>For now, Tite is available through Jitpack. To add it into your project :</p>
+<ul>
+<li>Setup Jitpack as a Maven repository</li>
+</ul>
+<div class="codehilite"><pre><span></span>allprojects {
+    repositories {
+        ...
+        maven { url &#39;https://jitpack.io&#39; }
+    }
+}
+</pre></div>
+
+<ul>
+<li>Add this library to your dependencies. For an Android project</li>
+</ul>
+<div class="codehilite"><pre><span></span>dependencies {
+    implementation &#39;com.github.ubiratansoares.tite:tite:$version&#39;
+}
+</pre></div>
+
+<p>Check this project <a href="https://github.com/ubiratansoares/tite/releases">releases</a> for the latest version.</p>
+<p>This library will be available at Maven Central soon, I`m looking for some community feedback.</p>
+<h2 id="dsl-design">DSL Design<a class="headerlink" href="#dsl-design" title="Permanent link">&para;</a></h2>
+<p>Tite DSL assumes that intentions for testing some reactive-type are grouped, under the following DSL blocks</p>
+<h4 id="conditions-before-performing-verifications">Conditions before performing verifications<a class="headerlink" href="#conditions-before-performing-verifications" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">val</span> <span class="py">target</span> <span class="p">=</span> <span class="n">Observable</span><span class="p">.</span><span class="n">range</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">5</span><span class="p">)</span>
+
+<span class="n">given</span><span class="p">(</span><span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">beforeChecksAwait</span> <span class="p">{</span>
+        <span class="n">untilEmissions</span> <span class="n">reach</span> <span class="m">2</span> <span class="c1">// will ignore first two items</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4 id="verifying-emmited-values">Verifying emmited values<a class="headerlink" href="#verifying-emmited-values" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">val</span> <span class="py">numbers</span> <span class="p">=</span> <span class="n">Observable</span><span class="p">.</span><span class="n">just</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+
+<span class="n">given</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">verifyForEmissions</span> <span class="p">{</span>
+        <span class="n">items</span> <span class="n">match</span> <span class="n">sequenceOf</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4 id="verifying-signaled-error">Verifying signaled error<a class="headerlink" href="#verifying-signaled-error" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">val</span> <span class="py">expectedReason</span> <span class="p">=</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s">&quot;Ouch!&quot;</span><span class="p">)</span>
+<span class="k">val</span> <span class="py">broken</span> <span class="p">=</span> <span class="n">Flowable</span><span class="p">.</span><span class="n">error</span><span class="p">&lt;</span><span class="n">Any</span><span class="p">&gt;(</span><span class="n">reason</span><span class="p">)</span>
+
+<span class="n">given</span><span class="p">(</span><span class="n">broken</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">verifyWhenError</span> <span class="p">{</span>
+        <span class="n">fails</span> <span class="n">byError</span> <span class="n">expectedReason</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4 id="verifying-lifecycle-of-a-sequence">Verifying lifecycle of a sequence<a class="headerlink" href="#verifying-lifecycle-of-a-sequence" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">val</span> <span class="py">neverStarts</span> <span class="p">=</span> <span class="n">Completable</span><span class="p">.</span><span class="n">never</span><span class="p">()</span>
+
+<span class="n">given</span><span class="p">(</span><span class="n">neverStarts</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">assertThatSequence</span> <span class="p">{</span>
+        <span class="n">should</span> <span class="n">notBe</span> <span class="n">terminated</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h4 id="mixed-verifications">Mixed verifications<a class="headerlink" href="#mixed-verifications" title="Permanent link">&para;</a></h4>
+<p>Of course, you can mix all this blocks under the same unit test context, putting some structure over the <em>fluent-and-chainable</em> way of traditional Java</p>
+<div class="codehilite"><pre><span></span><span class="k">val</span> <span class="py">words</span> <span class="p">=</span> <span class="n">Observable</span><span class="p">.</span><span class="n">just</span><span class="p">(</span><span class="s">&quot;Adenor&quot;</span><span class="p">,</span> <span class="s">&quot;Leonardo&quot;</span><span class="p">,</span> <span class="s">&quot;Bacchi&quot;</span><span class="p">)</span>
+
+<span class="n">given</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="n">beforeChecksAwait</span> <span class="p">{</span>
+        <span class="n">countingTime</span> <span class="n">until</span> <span class="m">3.</span><span class="n">seconds</span>
+    <span class="p">}</span>
+
+    <span class="n">assertThatSequence</span> <span class="p">{</span>
+        <span class="n">should</span> <span class="n">be</span> <span class="n">completed</span>
+        <span class="n">should</span> <span class="n">be</span> <span class="n">terminated</span>
+        <span class="n">should</span> <span class="n">notBe</span> <span class="n">broken</span>
+        <span class="n">should</span> <span class="n">be</span> <span class="n">subscribed</span>
+    <span class="p">}</span>
+
+    <span class="n">verifyForEmissions</span> <span class="p">{</span>
+        <span class="n">items</span> <span class="n">match</span> <span class="n">sequenceOf</span><span class="p">(</span><span class="s">&quot;Adenor&quot;</span><span class="p">,</span> <span class="s">&quot;Leonardo&quot;</span><span class="p">,</span> <span class="s">&quot;Bacchi&quot;</span><span class="p">)</span>
+        <span class="n">firstItem</span> <span class="n">shouldBe</span> <span class="s">&quot;Adenor&quot;</span>
+        <span class="n">never</span> <span class="n">emmits</span> <span class="s">&quot;Parreira&quot;</span>
+        <span class="n">never</span> <span class="n">emmits</span> <span class="s">&quot;Felipão&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>If you want to learn all convered RxJava2 testing APIs without exploring the DSL itself, please, refer to this DSL unit tests .</p>
+<h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
+<p>In order to hack-and-mess with this library, we recommend</p>
+<ul>
+<li>IntellijIDEA with Kotlin plugin <code>1.2.51</code> or newer</li>
+</ul>
+<p>This library is builded with Gradle. The IDE should integrate seamlessly with this project via the default <strong>Gradle wrapper</strong>.</p>
+<h2 id="is-this-library-used-by-someone-somewhere">Is this library used by someone / somewhere ?<a class="headerlink" href="#is-this-library-used-by-someone-somewhere" title="Permanent link">&para;</a></h2>
+<p>Yes. At <a href="https://stone.com.br">Stone</a> we are using it extensively into some new products (to be launched soon! 🚀), but this library concept (and practical field validation) is older than those products, mine own, and I decided to open-source it right now.</p>
+<h2 id="further-work">Further Work<a class="headerlink" href="#further-work" title="Permanent link">&para;</a></h2>
+<p>If you have an idea for this library, or question, please file an issue for it!</p>
+<p>In the short term roadmap we have</p>
+<ul>
+<li>Publish it to Maven Central</li>
+<li>Cover 100% of RxJava testing APIs with DSL</li>
+<li>Thinking about TestScheduler DSLs as well</li>
+</ul>
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>This library is released under the <a href="https://tldrlegal.com/license/mit-license">MIT license</a></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 Ubiratan Soares
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="./assets/fonts/font-awesome.css">
+    
+      <a href="http://ubiratansoares.github.io" class="md-footer-social__link fa fa-globe"></a>
+    
+      <a href="https://github.com/ubiratansoares" class="md-footer-social__link fa fa-github-alt"></a>
+    
+      <a href="https://twitter.com/ubiratanfsoares" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/ubiratanfsoares" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="./assets/javascripts/application.30f6b8b1.js"></script>
+      
+      <script>app.initialize({version:"0.17.5",url:{base:"."}})</script>
+      
+        <script src="./search/require.js"></script>
+      
+        <script src="./search/search.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
