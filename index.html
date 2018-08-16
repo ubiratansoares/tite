@@ -280,33 +280,6 @@
     Motivation
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-discoverability" title="API discoverability" class="md-nav__link">
-    API discoverability
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java-api-style-in-a-kotlin-world" title="Java API style in a Kotlin world" class="md-nav__link">
-    Java API style in a Kotlin world
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dsl-goal" title="DSL Goal" class="md-nav__link">
-    DSL Goal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -435,33 +408,6 @@
     Motivation
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#api-discoverability" title="API discoverability" class="md-nav__link">
-    API discoverability
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#java-api-style-in-a-kotlin-world" title="Java API style in a Kotlin world" class="md-nav__link">
-    Java API style in a Kotlin world
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dsl-goal" title="DSL Goal" class="md-nav__link">
-    DSL Goal
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -585,28 +531,10 @@ letters
     .assertComplete()
 </pre></div>
 
-<p>Both <strong>TestSubscriber</strong> and <strong>TestObserver</strong> assertions let you get your tests done; but after using these APIs for a while, you may figure out they are not perfect ... Let's see why.</p>
-<h4 id="api-discoverability">API discoverability<a class="headerlink" href="#api-discoverability" title="Permanent link">&para;</a></h4>
-<p>The range of verifiable aspects of some reactive-powered API is quite wide... you may be interested :</p>
-<ul>
-<li>on the values emmited </li>
-<li>on error(s) signaled</li>
-<li>on sequence "lifecycle" check (<em>Is it terminated</em> ? <em>Is it running</em> ?)</li>
-<li>all that together</li>
-</ul>
-<p>Furthermore, when using some <strong>TestSubscriber</strong> or <strong>TestObserver</strong> API, have you ever asked what is the diference between</p>
-<ul>
-<li><code>assertError</code> and <code>assertFailure</code>?</li>
-<li><code>assertEmpty</code> and <code>assertNoValues</code>?</li>
-<li><code>assertValuesSequence</code> and <code>assertValuesSet</code>?</li>
-</ul>
-<p>Offering several options over an API is a decision that may confuse the developer, even unintentionally. </p>
-<h4 id="java-api-style-in-a-kotlin-world">Java API style in a Kotlin world<a class="headerlink" href="#java-api-style-in-a-kotlin-world" title="Permanent link">&para;</a></h4>
-<p>Yes, it's true. The <em>fluent-and-chainable</em> API design is nice, but is too much Java-sh, and not so much Kotlin idiomatic. </p>
-<h4 id="dsl-goal">DSL Goal<a class="headerlink" href="#dsl-goal" title="Permanent link">&para;</a></h4>
-<p>Kotlin empowers developers with a new world of possibilities, including a new field of DSL grammars using language features like <strong>infix notation</strong> for functions representations, <strong>lambdas extensions</strong> over instance types and others.</p>
-<p>With that in mind, Tite was born. It aims to apply some grammar over 
-<strong>TestSubscriber</strong> and <strong>TestObserver</strong> APIs while improving the API discoverability as well.</p>
+<p>Both <strong>TestSubscriber</strong> and <strong>TestObserver</strong> assertions let you get your tests done; but after using these APIs for a while, you may figure out they are not perfect ... </p>
+<p>Nevertheless, Kotlin empowers developers with a new world of possibilities, including a new field of DSL grammars using language features like <strong>infix notation</strong> for functions representations, <strong>lambdas extensions</strong> over instance types and others.</p>
+<p>With this in mind, Tite was born. It aims to apply some grammar over 
+<strong>TestSubscriber</strong> and <strong>TestObserver</strong> APIs while improving these APIs discoverability as well.</p>
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
 <p>Check it on <a href="https://github.com/ubiratansoares/tite">Github</a></p>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
