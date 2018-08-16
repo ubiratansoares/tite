@@ -18,35 +18,12 @@ letters
 
 ```
 
-Both **TestSubscriber** and **TestObserver** assertions let you get your tests done; but after using these APIs for a while, you may figure out they are not perfect ... Let's see why.
+Both **TestSubscriber** and **TestObserver** assertions let you get your tests done; but after using these APIs for a while, you may figure out they are not perfect ... 
 
-#### API discoverability
+Nevertheless, Kotlin empowers developers with a new world of possibilities, including a new field of DSL grammars using language features like **infix notation** for functions representations, **lambdas extensions** over instance types and others.
 
-The range of verifiable aspects of some reactive-powered API is quite wide... you may be interested :
-
-- on the values emmited 
-- on error(s) signaled
-- on sequence "lifecycle" check (*Is it terminated* ? *Is it running* ?)
-- all that together
-
-Furthermore, when using some **TestSubscriber** or **TestObserver** API, have you ever asked what is the diference between
-
-- `assertError` and `assertFailure`?
-- `assertEmpty` and `assertNoValues`?
-- `assertValuesSequence` and `assertValuesSet`?
-
-Offering several options over an API is a decision that may confuse the developer, even unintentionally. 
-
-#### Java API style in a Kotlin world
-
-Yes, it's true. The *fluent-and-chainable* API design is nice, but is too much Java-sh, and not so much Kotlin idiomatic. 
-
-#### DSL Goal
-
-Kotlin empowers developers with a new world of possibilities, including a new field of DSL grammars using language features like **infix notation** for functions representations, **lambdas extensions** over instance types and others.
-
-With that in mind, Tite was born. It aims to apply some grammar over 
-**TestSubscriber** and **TestObserver** APIs while improving the API discoverability as well.
+With this in mind, Tite was born. It aims to apply some grammar over 
+**TestSubscriber** and **TestObserver** APIs while improving these APIs discoverability as well.
 
 ## Source Code
 
