@@ -2,6 +2,9 @@
 
 > A Kotlin DSL for gorgeous RxJava2 tests
 
+[![CircleCI](https://circleci.com/gh/ubiratansoares/tite/tree/master.svg?style=svg&circle-token=188c963e29f181c85e6c2559ca31ac3935fedc7e)](https://circleci.com/gh/ubiratansoares/tite/tree/master) 
+![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat-square)
+
 Tite is a simple DSL on top of existing RxJava2 testing APIs. This DSL proposes a nice way to perform assertions, while leveraging 100% on existing testing machinery of current RxJava.
 
 ## Overview
