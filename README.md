@@ -35,6 +35,13 @@ given(words) {
         never emmits "Parreira"
         never emmits "Felipão"
     }
+    
+    verifyWhenError {
+        fails byError NumberFormatException
+        fails withErrorMessage "exception msg"
+        fails byType FileAlreadyExistsException::class
+        fails byMatching { it -> it == CredentialsAccessError }
+    }
 }
 
 ```
