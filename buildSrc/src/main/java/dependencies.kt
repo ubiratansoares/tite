@@ -1,8 +1,8 @@
 
 object Versions {
 
-    const val kotlin = "1.2.51"
-    const val rxJava2 = "2.1.15"
+    const val kotlin = "1.3.11"
+    const val rxJava2 = "2.2.4"
     const val jUnit4 = "4.12"
 
 }
