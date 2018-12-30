@@ -158,7 +158,7 @@ If you want to learn all convered RxJava2 testing APIs without exploring the DSL
 
 In order to hack-and-mess with this library, we recommend
 
-- IntellijIDEA with Kotlin plugin `1.2.51` or newer
+- IntellijIDEA with Kotlin plugin `1.3.x` or newer
 
 This library is builded with Gradle. The IDE should integrate seamlessly with this project via the default **Gradle wrapper**.
 

@@ -83,10 +83,10 @@ dependencies {
 }
 ```
 
-Current version of this library (`0.1`) matches
+Current version of this library (`0.1.1`) matches
 
-- Kotlin `1.2.51`
-- RxJava `2.1.15`
+- Kotlin `1.3.11`
+- RxJava `2.2.4`
 
 ## Documentation
 
